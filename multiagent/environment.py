@@ -160,6 +160,7 @@ class MultiAgentEnv(gym.Env):
             # physical action
             if self.discrete_action_input:
                 agent.action.u = np.zeros(self.world.dim_p)
+                # TODO: set up for n dimensional action space
                 # process discrete action
                 if action[0] == 1: agent.action.u[0] = -1.0
                 if action[0] == 2: agent.action.u[0] = +1.0
@@ -260,7 +261,7 @@ class MultiAgentEnv(gym.Env):
             # render to display or array
             results.append(self.viewers[i].render(return_rgb_array = mode=='rgb_array'))
 
-        return results
+        return results[0]
 
     # create receptor field locations in local coordinate frame
     def _make_receptor_locations(self, agent):

@@ -75,7 +75,7 @@ class Agent(Entity):
         self.state = AgentState()
         # action
         self.action = Action()
-        # script behavior to execute
+        # script behavior to execute. Keep this None for policy_agent
         self.action_callback = None
 
 # multi-agent world
